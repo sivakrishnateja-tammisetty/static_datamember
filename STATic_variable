@@ -1,0 +1,43 @@
+STATIC DATA MEMBER:
+  .Static data member belongs to class.
+  .declaration of static variable inside the class only and define outside with the help of scope resolution(::).
+  .Instance is not requird to access static variable.
+
+
+
+
+#include <iostream>
+using namespace std;
+class Employee
+{
+public:
+  static int id;
+  string name;
+    Employee (string name)
+  {
+    this->name = name;
+    id++;
+
+  }
+  void display ()
+  {
+    cout << name << " " << id << endl;
+  }
+};
+
+int
+  Employee::id = 0;
+
+
+
+
+int
+main ()
+{
+  Employee e1 ("Siva");			//creating an object of Employee
+  Employee e2("cva"); 
+  e1.display();
+  e2.display ();
+  cout<<Employee::id<<endl;//Instance is not required to access static variable
+  return 0;
+}
