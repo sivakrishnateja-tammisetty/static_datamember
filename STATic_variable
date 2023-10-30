@@ -12,6 +12,7 @@ STATIC MEMEBER FUNCTION:
 
 
 
+                                                       //STATIC VARIABLE
 #include <iostream>
 using namespace std;
 class Employee
@@ -48,3 +49,47 @@ main ()
   cout<<"Total no.of objects:"<<Employee::count<<endl;//Instance is not required to access static variable
   return 0;
 }
+
+
+
+
+
+
+                                                                     //STATIC METHOD
+
+#include <iostream>
+using namespace std;
+class Employee
+{
+public:
+  static int count;
+  int id;
+  string name;
+    Employee (int id,string name)
+  {
+      this->id =id;
+    this->name = name;
+    count++;
+
+  }
+  void display ()
+  {
+    cout << name << " " << id << endl;
+  }
+  static void count_objects()//static method
+  {
+      cout<<"Total no.of objects:"<<count<<endl;
+  }
+};
+
+int Employee::count = 0;
+int main ()
+{
+  Employee e1 (1,"Siva");			//creating an object of Employee
+  Employee e2(2,"cva"); 
+  e1.display();
+  e2.display ();
+  Employee::count_objects();// we can directly call static method without instance of a class
+  return 0;
+}
+
