@@ -11,12 +11,14 @@ using namespace std;
 class Employee
 {
 public:
-  static int id;
+  static int count;
+  int id;
   string name;
-    Employee (string name)
+    Employee (int id,string name)
   {
+      this->id =id;
     this->name = name;
-    id++;
+    count++;
 
   }
   void display ()
@@ -25,8 +27,7 @@ public:
   }
 };
 
-int
-  Employee::id = 0;
+int Employee::count = 0;
 
 
 
@@ -34,10 +35,10 @@ int
 int
 main ()
 {
-  Employee e1 ("Siva");			//creating an object of Employee
-  Employee e2("cva"); 
+  Employee e1 (1,"Siva");			//creating an object of Employee
+  Employee e2(2,"cva"); 
   e1.display();
   e2.display ();
-  cout<<Employee::id<<endl;//Instance is not required to access static variable
+  cout<<"Total no.of objects:"<<Employee::count<<endl;//Instance is not required to access static variable
   return 0;
 }
