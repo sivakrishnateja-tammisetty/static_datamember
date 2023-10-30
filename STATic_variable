@@ -4,6 +4,12 @@ STATIC DATA MEMBER:
   .Instance is not requird to access static variable.
 
 
+STATIC MEMEBER FUNCTION:
+  .It is a member function,that is used to access only static data members.
+  .It cannot access non-static data members.
+  .it can be called directly without instance of a class.
+
+
 
 
 #include <iostream>
