@@ -1,7 +1,7 @@
 STATIC DATA MEMBER:
   .Static data member belongs to class.
   .declaration of static variable inside the class only and define outside with the help of scope resolution(::).
-  .Instance is not requird to access static variable.
+  .Instance is not requird to access static variable,just access through (classname::static variable).
 
 
 STATIC MEMEBER FUNCTION:
@@ -9,7 +9,7 @@ STATIC MEMEBER FUNCTION:
   .It cannot access non-static data members.
   .it can be called directly without instance of a class.
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------
 
 
                                                        //STATIC VARIABLE
@@ -55,7 +55,54 @@ main ()
 
 
 
-                                                                     //STATIC METHOD
+
+
+
+#include <iostream>
+using namespace std;
+class Rectangle{
+    int l,b,area;
+    public:
+    static int count;
+    Rectangle()
+    {
+        l=0;
+         b=0;
+         count++;
+    }
+    void setValues(int l,int b)
+    {
+        this->l=l;
+        this->b=b;
+        area=l*b;
+        
+    }
+    void display()
+    {
+        cout<<l<<" "<<b<<endl;
+        cout<<"Area is: "<<area<<endl;
+    }
+    
+};
+int Rectangle::count=0;
+
+int main()
+{
+  Rectangle a,b,c;
+  cout<<a.count<<endl;//no need to access with object
+  cout<<b.count<<endl;//no need to access with object
+  cout<<c.count<<endl;//no need to access with object
+  cout<<Rectangle::count<<endl;
+    
+    return 0;
+}
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                  //STATIC METHOD
 
 #include <iostream>
 using namespace std;
