@@ -159,7 +159,8 @@ int main ()
 
 
 
-Eg:
+Eg:Accessing non-static data member from static function
+
 #include<iostream>
 #include<iomanip>
 using namespace std;
@@ -180,4 +181,31 @@ int main()
     return 0;
 
 }
+o/p:7
+
+
+
+
+Eg: using this pointer inside static function
+
+
+#include<iostream>
+#include<iomanip>
+using namespace std;
+class math
+{
+    int x;
+    static void set_data(int x)
+    {
+    (*this).x=x;
+    }
+};
+int main()
+{
+
+    return 0;
+
+}
+o/p:
+error
 
