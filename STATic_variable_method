@@ -9,6 +9,15 @@ STATIC MEMEBER FUNCTION:
   .It cannot access non-static data members.
   .it can be called directly without instance of a class.
 
+
+
+.Static function doesn't use this pointer.
+
+
+
+NOTE: To access non-static data members from a static function, you would need an instance of the class. 
+    If the non-static data members are public or if the static function is a friend function of the class, you can use an instance to access them.
+
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -138,5 +147,37 @@ int main ()
   e2.display ();
   Employee::count_objects();// we can directly call static method without instance of a class
   return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+Eg:
+#include<iostream>
+#include<iomanip>
+using namespace std;
+class math
+{
+    public:
+    static int add(int x,int y)
+    {
+      return x+y;
+    }
+};
+int main()
+{
+    
+    int m;
+    m=math::add(3,4);
+    cout<<m<<endl;
+    return 0;
+
 }
 
